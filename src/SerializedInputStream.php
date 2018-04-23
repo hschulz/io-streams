@@ -2,31 +2,25 @@
 
 namespace hschulz\IOStreams;
 
-use \hschulz\IOStreams\AbstractInputStream;
-use \hschulz\IOStreams\InputStream;
-use \hschulz\IOStreams\ReadModes;
-use \unserialize;
+use unserialize;
 
-/**
- *
- */
-class SerializedInputStream extends AbstractInputStream {
-
+class SerializedInputStream extends AbstractInputStream
+{
     /**
-     *
      * @param InputStream $stream
-     * @param string $mode
+     * @param string      $mode
      */
-    public function __construct(InputStream $stream, $mode = ReadModes::MODE_READ) {
+    public function __construct(InputStream $stream, $mode = ReadModes::MODE_READ)
+    {
         parent::__construct($mode);
         $this->stream = $stream;
     }
 
     /**
-     *
      * @return mixed
      */
-    public function read() {
+    public function read()
+    {
         return unserialize($this->stream->read());
     }
 }
