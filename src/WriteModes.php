@@ -5,7 +5,8 @@ namespace hschulz\IOStreams;
 /**
  *
  */
-interface WriteModes {
+interface WriteModes
+{
 
     /**
      *
