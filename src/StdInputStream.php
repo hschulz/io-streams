@@ -2,15 +2,14 @@
 
 namespace hschulz\IOStreams;
 
-use \hschulz\IOStreams\FileInputStream;
 use \feof;
 use \fread;
 
 /**
  *
  */
-class StdInputStream extends FileInputStream {
-
+class StdInputStream extends FileInputStream
+{
     /**
      * The default buffer size.
      * @var int
@@ -27,7 +26,8 @@ class StdInputStream extends FileInputStream {
      *
      * @param int $bufferSize
      */
-    public function __construct(int $bufferSize = self::BUFFER_SIZE) {
+    public function __construct(int $bufferSize = self::BUFFER_SIZE)
+    {
         parent::__construct('php://stdin');
         $this->bufferSize = $bufferSize;
     }
@@ -36,8 +36,8 @@ class StdInputStream extends FileInputStream {
      *
      * @return mixed
      */
-    public function read() {
-
+    public function read()
+    {
         $output = '';
 
         while (!feof($this->handle)) {
