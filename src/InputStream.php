@@ -2,19 +2,14 @@
 
 namespace hschulz\IOStreams;
 
-/**
- *
- */
-interface InputStream {
-
+interface InputStream
+{
     /**
-     *
      * @return bool
      */
     public function open(): bool;
 
     /**
-     *
      * @return mixed
      */
     public function read();
