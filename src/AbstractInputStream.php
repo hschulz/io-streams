@@ -2,12 +2,11 @@
 
 namespace hschulz\IOStreams;
 
-use \hschulz\IOStreams\InputStream;
-
 /**
  *
  */
-abstract class AbstractInputStream implements InputStream {
+abstract class AbstractInputStream implements InputStream
+{
 
     /**
      *
@@ -18,7 +17,8 @@ abstract class AbstractInputStream implements InputStream {
     /**
      *
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->stream = null;
     }
 
@@ -26,7 +26,8 @@ abstract class AbstractInputStream implements InputStream {
      *
      * @return bool
      */
-    public function close(): bool {
+    public function close(): bool
+    {
         return $this->stream->close();
     }
 
@@ -34,7 +35,8 @@ abstract class AbstractInputStream implements InputStream {
      *
      * @return bool
      */
-    public function open(): bool {
+    public function open(): bool
+    {
         return $this->stream->open();
     }
 

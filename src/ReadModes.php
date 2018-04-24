@@ -5,8 +5,8 @@ namespace hschulz\IOStreams;
 /**
  *
  */
-interface ReadModes {
-
+interface ReadModes
+{
     /**
      *
      * @var string

@@ -2,8 +2,6 @@
 
 namespace hschulz\IOStreams;
 
-use \hschulz\IOStreams\AbstractInputStream;
-use \hschulz\IOStreams\ReadModes;
 use \fclose;
 use \fopen;
 use \fread;
@@ -11,7 +9,8 @@ use \fread;
 /**
  *
  */
-class FileInputStream extends AbstractInputStream {
+class FileInputStream extends AbstractInputStream
+{
 
     /**
      *
@@ -36,7 +35,8 @@ class FileInputStream extends AbstractInputStream {
      * @param string $file
      * @param string $mode
      */
-    public function __construct(string $file, string $mode = ReadModes::MODE_READ) {
+    public function __construct(string $file, string $mode = ReadModes::MODE_READ)
+    {
         parent::__construct();
         $this->file   = $file;
         $this->mode   = $mode;
@@ -47,7 +47,8 @@ class FileInputStream extends AbstractInputStream {
      *
      * @return bool
      */
-    public function close(): bool {
+    public function close(): bool
+    {
         return fclose($this->handle);
     }
 
@@ -55,8 +56,8 @@ class FileInputStream extends AbstractInputStream {
      *
      * @return bool
      */
-    public function open(): bool {
-
+    public function open(): bool
+    {
         if (($handle = fopen($this->file, $this->mode)) !== false) {
             $this->handle = $handle;
         }
@@ -67,7 +68,8 @@ class FileInputStream extends AbstractInputStream {
     /**
      * @return mixed
      */
-    public function read() {
+    public function read()
+    {
         return fread($this->handle, filesize($this->file));
     }
 }
