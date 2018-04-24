@@ -5,7 +5,7 @@ namespace hschulz\IOStreams;
 use \hschulz\IOStreams\AbstractInputStream;
 use \hschulz\IOStreams\InputStream;
 use \hschulz\IOStreams\ReadModes;
-use \unserialize;
+use function \unserialize;
 
 /**
  *

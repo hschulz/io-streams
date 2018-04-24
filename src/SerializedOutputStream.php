@@ -5,7 +5,7 @@ namespace hschulz\IOStreams;
 
 use \hschulz\IOStreams\AbstractOutputStream;
 use \hschulz\IOStreams\OutputStream;
-use \serialize;
+use function \serialize;
 
 /**
  *

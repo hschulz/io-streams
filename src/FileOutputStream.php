@@ -4,9 +4,9 @@ namespace hschulz\IOStreams;
 
 use \hschulz\IOStreams\AbstractOutputStream;
 use \hschulz\IOStreams\WriteModes;
-use \fclose;
-use \fopen;
-use \fwrite;
+use function \fclose;
+use function \fopen;
+use function \fwrite;
 
 /**
  *

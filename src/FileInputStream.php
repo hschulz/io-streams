@@ -4,9 +4,9 @@ namespace hschulz\IOStreams;
 
 use \hschulz\IOStreams\AbstractInputStream;
 use \hschulz\IOStreams\ReadModes;
-use \fclose;
-use \fopen;
-use \fread;
+use function \fclose;
+use function \fopen;
+use function \fread;
 
 /**
  *

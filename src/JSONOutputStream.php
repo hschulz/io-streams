@@ -4,9 +4,9 @@ namespace hschulz\IOStreams;
 
 use \hschulz\IOStreams\AbstractOutputStream;
 use \hschulz\IOStreams\OutputStream;
-use \JSON_PRETTY_PRINT;
-use \JSON_UNESCAPED_SLASHES;
-use \JSON_UNESCAPED_UNICODE;
+use const \JSON_PRETTY_PRINT;
+use const \JSON_UNESCAPED_SLASHES;
+use const \JSON_UNESCAPED_UNICODE;
 
 /**
  *

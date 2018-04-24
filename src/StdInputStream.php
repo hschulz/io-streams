@@ -3,8 +3,8 @@
 namespace hschulz\IOStreams;
 
 use \hschulz\IOStreams\FileInputStream;
-use \feof;
-use \fread;
+use function \feof;
+use function \fread;
 
 /**
  *

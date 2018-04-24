@@ -4,7 +4,7 @@ namespace hschulz\IOStreams;
 
 use \hschulz\IOStreams\AbstractInputStream;
 use \hschulz\IOStreams\InputStream;
-use \json_decode;
+use function \json_decode;
 
 /**
  *
