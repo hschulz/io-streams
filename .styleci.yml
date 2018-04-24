@@ -23,7 +23,6 @@ enabled:
     - no_unneeded_control_parentheses
     - no_unused_imports
     - no_whitespace_in_blank_line
-    - ordered_imports
     - phpdoc_no_package
     - phpdoc_scalar
     - self_accessor
