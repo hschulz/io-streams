@@ -2,12 +2,11 @@
 
 namespace hschulz\IOStreams;
 
-use \hschulz\IOStreams\OutputStream;
-
 /**
  *
  */
-abstract class AbstractOutputStream implements OutputStream {
+abstract class AbstractOutputStream implements OutputStream
+{
 
     /**
      *
@@ -19,7 +18,8 @@ abstract class AbstractOutputStream implements OutputStream {
      *
      * @param string $mode
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->stream = null;
     }
 
@@ -27,14 +27,16 @@ abstract class AbstractOutputStream implements OutputStream {
      *
      * @return bool
      */
-    public function close(): bool {
+    public function close(): bool
+    {
         return $this->stream->close();
     }
 
     /**
      * @return bool
      */
-    public function open(): bool {
+    public function open(): bool
+    {
         return $this->stream->open();
     }
 
