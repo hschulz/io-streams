@@ -2,21 +2,20 @@
 
 namespace hschulz\IOStreams;
 
-
-use \hschulz\IOStreams\AbstractOutputStream;
-use \hschulz\IOStreams\OutputStream;
 use function \serialize;
 
 /**
  *
  */
-class SerializedOutputStream extends AbstractOutputStream {
+class SerializedOutputStream extends AbstractOutputStream
+{
 
     /**
      *
      * @param OutputStream $stream
      */
-    public function __construct(OutputStream $stream) {
+    public function __construct(OutputStream $stream)
+    {
         parent::__construct();
         $this->stream = $stream;
     }
@@ -26,7 +25,8 @@ class SerializedOutputStream extends AbstractOutputStream {
      * @param mixed $data
      * @return int
      */
-    public function write($data): int {
+    public function write($data): int
+    {
         return $this->stream->write(serialize($data));
     }
 }
