@@ -1,2 +1,8 @@
-/nbproject/
-/vendor/
+# IDE
+nbproject
+.vscode
+.idea
+
+# Composer
+vendor
+composer.phar
