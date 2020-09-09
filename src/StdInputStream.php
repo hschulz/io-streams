@@ -1,9 +1,12 @@
 <?php
 
-namespace hschulz\IOStreams;
+declare(strict_types=1);
 
-use function \feof;
-use function \fread;
+namespace Hschulz\IOStreams;
+
+use Hschulz\IOStreams\FileInputStream;
+use function feof;
+use function fread;
 
 /**
  *
@@ -14,13 +17,13 @@ class StdInputStream extends FileInputStream
      * The default buffer size.
      * @var int
      */
-    const BUFFER_SIZE = 2048;
+    public const BUFFER_SIZE = 2048;
 
     /**
      *
      * @var int
      */
-    protected $bufferSize = self::BUFFER_SIZE;
+    protected int $bufferSize = self::BUFFER_SIZE;
 
     /**
      *
@@ -34,14 +37,16 @@ class StdInputStream extends FileInputStream
 
     /**
      *
-     * @return mixed
+     * @return string
      */
-    public function read()
+    public function read(): string
     {
         $output = '';
 
         while (!feof($this->handle)) {
-            $output .= (string) fread($this->handle, $this->bufferSize);
+            if (($read = fread($this->handle, $this->bufferSize)) !== false) {
+                $output .= $read;
+            }
         }
 
         return $output;

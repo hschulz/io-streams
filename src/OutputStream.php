@@ -1,13 +1,14 @@
 <?php
 
-namespace hschulz\IOStreams;
+declare(strict_types=1);
+
+namespace Hschulz\IOStreams;
 
 /**
  *
  */
 interface OutputStream
 {
-
     /**
      *
      * @return bool

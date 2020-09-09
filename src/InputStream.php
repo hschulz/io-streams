@@ -1,13 +1,14 @@
 <?php
 
-namespace hschulz\IOStreams;
+declare(strict_types=1);
+
+namespace Hschulz\IOStreams;
 
 /**
  *
  */
 interface InputStream
 {
-
     /**
      *
      * @return bool
@@ -16,11 +17,12 @@ interface InputStream
 
     /**
      *
-     * @return mixed
+     * @return string
      */
-    public function read();
+    public function read(): string;
 
     /**
+     *
      * @return bool
      */
     public function close(): bool;

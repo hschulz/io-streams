@@ -1,15 +1,17 @@
 <?php
 
-namespace hschulz\IOStreams;
+declare(strict_types=1);
 
-use function \serialize;
+namespace Hschulz\IOStreams;
+
+use Hschulz\IOStreams\AbstractOutputStream;
+use function serialize;
 
 /**
  *
  */
 class SerializedOutputStream extends AbstractOutputStream
 {
-
     /**
      *
      * @param OutputStream $stream

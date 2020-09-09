@@ -1,23 +1,25 @@
 <?php
 
-namespace hschulz\IOStreams;
+declare(strict_types=1);
 
-use function \unserialize;
+namespace Hschulz\IOStreams;
+
+use Hschulz\IOStreams\AbstractInputStream;
+use function unserialize;
 
 /**
  *
  */
 class SerializedInputStream extends AbstractInputStream
 {
-
     /**
      *
      * @param InputStream $stream
      * @param string $mode
      */
-    public function __construct(InputStream $stream, $mode = ReadModes::MODE_READ)
+    public function __construct(InputStream $stream)
     {
-        parent::__construct($mode);
+        parent::__construct();
         $this->stream = $stream;
     }
 

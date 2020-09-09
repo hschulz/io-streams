@@ -1,16 +1,23 @@
 <?php
 
-namespace hschulz\IOStreams;
+declare(strict_types=1);
 
-use const \JSON_PRETTY_PRINT;
-use const \JSON_UNESCAPED_SLASHES;
-use const \JSON_UNESCAPED_UNICODE;
+namespace Hschulz\IOStreams;
+
+use Hschulz\IOStreams\AbstractOutputStream;
+use const JSON_PRETTY_PRINT;
+use const JSON_UNESCAPED_SLASHES;
+use const JSON_UNESCAPED_UNICODE;
 
 /**
  *
  */
 class JSONOutputStream extends AbstractOutputStream
 {
+    /**
+     * @var int
+     */
+    public const DEFAULT_MASK = JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE;
 
     /**
      *
@@ -25,12 +32,11 @@ class JSONOutputStream extends AbstractOutputStream
     /**
      *
      * @param mixed $data
+     * @param int $mask
      * @return int
      */
-    public function write($data): int
+    public function write($data, int $mask = self::DEFAULT_MASK): int
     {
-        $mask = JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE;
-
-        return (int) $this->stream->write(json_encode($data, $mask));
+        return $this->stream->write(json_encode($data, $mask));
     }
 }

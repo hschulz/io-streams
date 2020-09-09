@@ -1,14 +1,16 @@
 <?php
 
+declare(strict_types=1);
 
-namespace hschulz\IOStreams;
+namespace Hschulz\IOStreams;
+
+use Hschulz\IOStreams\FileOutputStream;
 
 /**
  *
  */
 class StdOutputStream extends FileOutputStream
 {
-
     /**
      *
      */

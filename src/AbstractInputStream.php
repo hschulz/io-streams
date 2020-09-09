@@ -1,18 +1,21 @@
 <?php
 
-namespace hschulz\IOStreams;
+declare(strict_types=1);
+
+namespace Hschulz\IOStreams;
+
+use Hschulz\IOStreams\InputStream;
 
 /**
  *
  */
 abstract class AbstractInputStream implements InputStream
 {
-
     /**
      *
-     * @var InputStream
+     * @var InputStream|null
      */
-    protected $stream = null;
+    protected ?InputStream $stream = null;
 
     /**
      *
@@ -39,10 +42,4 @@ abstract class AbstractInputStream implements InputStream
     {
         return $this->stream->open();
     }
-
-    /**
-     *
-     * @return mixed
-     */
-    abstract public function read();
 }

@@ -1,32 +1,35 @@
 <?php
 
-namespace hschulz\IOStreams;
+declare(strict_types=1);
 
-use function \fclose;
-use function \fopen;
-use function \fread;
+namespace Hschulz\IOStreams;
+
+use Hschulz\IOStreams\AbstractInputStream;
+use Hschulz\IOStreams\ReadMode;
+use function fclose;
+use function fopen;
+use function fread;
 
 /**
  *
  */
 class FileInputStream extends AbstractInputStream
 {
+    /**
+     *
+     * @var string
+     */
+    protected string $mode = ReadMode::MODE_READ_BINARY;
 
     /**
      *
      * @var string
      */
-    protected $mode = ReadModes::MODE_READ;
+    protected string $file = '';
 
     /**
      *
-     * @var string
-     */
-    protected $file = '';
-
-    /**
-     *
-     * @var ressource
+     * @var resource|null
      */
     protected $handle = null;
 
@@ -35,7 +38,7 @@ class FileInputStream extends AbstractInputStream
      * @param string $file
      * @param string $mode
      */
-    public function __construct(string $file, string $mode = ReadModes::MODE_READ)
+    public function __construct(string $file, string $mode = ReadMode::MODE_READ_BINARY)
     {
         parent::__construct();
         $this->file   = $file;
@@ -49,7 +52,7 @@ class FileInputStream extends AbstractInputStream
      */
     public function close(): bool
     {
-        return fclose($this->handle);
+        return $this->handle !== null ? fclose($this->handle) : true;
     }
 
     /**
@@ -58,6 +61,10 @@ class FileInputStream extends AbstractInputStream
      */
     public function open(): bool
     {
+        if ($this->file === '') {
+            return false;
+        }
+
         if (($handle = fopen($this->file, $this->mode)) !== false) {
             $this->handle = $handle;
         }
@@ -66,10 +73,24 @@ class FileInputStream extends AbstractInputStream
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function read()
+    public function read(): string
     {
-        return fread($this->handle, filesize($this->file));
+        /* In case the handle is unset */
+        if ($this->handle === null) {
+            return '';
+        }
+
+        /* Try to read input */
+        $result = fread($this->handle, filesize($this->file));
+
+        /* There was an error reading the input */
+        if (!$result) {
+            return '';
+        }
+
+        /* Successful read */
+        return $result;
     }
 }

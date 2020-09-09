@@ -1,22 +1,24 @@
 <?php
 
-namespace hschulz\IOStreams;
+declare(strict_types=1);
+
+namespace Hschulz\IOStreams;
+
+use Hschulz\IOStreams\OutputStream;
 
 /**
  *
  */
 abstract class AbstractOutputStream implements OutputStream
 {
-
     /**
      *
-     * @var OutputStream
+     * @var OutputStream|null
      */
-    protected $stream = null;
+    protected ?OutputStream $stream = null;
 
     /**
      *
-     * @param string $mode
      */
     public function __construct()
     {
@@ -39,9 +41,4 @@ abstract class AbstractOutputStream implements OutputStream
     {
         return $this->stream->open();
     }
-
-    /**
-     * @return int
-     */
-    abstract public function write($data): int;
 }

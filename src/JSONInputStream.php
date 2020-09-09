@@ -1,15 +1,17 @@
 <?php
 
-namespace hschulz\IOStreams;
+declare(strict_types=1);
 
-use function \json_decode;
+namespace Hschulz\IOStreams;
+
+use Hschulz\IOStreams\AbstractInputStream;
+use function json_decode;
 
 /**
  *
  */
 class JSONInputStream extends AbstractInputStream
 {
-
     /**
      *
      * @param InputStream $stream
@@ -22,9 +24,9 @@ class JSONInputStream extends AbstractInputStream
 
     /**
      *
-     * @return mixed
+     * @return string
      */
-    public function read()
+    public function read(): string
     {
         return json_decode($this->stream->read(), true);
     }

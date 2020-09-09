@@ -1,26 +1,29 @@
 <?php
 
-namespace hschulz\IOStreams;
+declare(strict_types=1);
 
-use function \fclose;
-use function \fopen;
-use function \fwrite;
+namespace Hschulz\IOStreams;
+
+use Hschulz\IOStreams\AbstractOutputStream;
+use Hschulz\IOStreams\WriteMode;
+use function fclose;
+use function fopen;
+use function fwrite;
 
 /**
  *
  */
 class FileOutputStream extends AbstractOutputStream
 {
-
     /**
      *
      * @var string
      */
-    protected $file = '';
+    protected string $file = '';
 
     /**
      *
-     * @var string
+     * @var resource|null
      */
     protected $handle = null;
 
@@ -28,14 +31,14 @@ class FileOutputStream extends AbstractOutputStream
      *
      * @var string
      */
-    protected $mode = WriteModes::MODE_OVERWRITE_CREATE;
+    protected string $mode = WriteMode::MODE_OVERWRITE_CREATE;
 
     /**
      *
      * @param string $file
      * @param string $mode
      */
-    public function __construct(string $file, string $mode = WriteModes::MODE_OVERWRITE_CREATE)
+    public function __construct(string $file, string $mode = WriteMode::MODE_OVERWRITE_CREATE)
     {
         parent::__construct();
         $this->file   = $file;
@@ -72,6 +75,15 @@ class FileOutputStream extends AbstractOutputStream
      */
     public function write($data): int
     {
-        return fwrite($this->handle, $data);
+        /* Try to write data */
+        $result = fwrite($this->handle, $data);
+
+        /* There was an error writing the data */
+        if ($result === false) {
+            return -1;
+        }
+
+        /* Successful write */
+        return $result;
     }
 }
