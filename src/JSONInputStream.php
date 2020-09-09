@@ -22,11 +22,23 @@ class JSONInputStream extends AbstractInputStream
     }
 
     /**
+     * Returns the string representation of the json that has been read.
      *
      * @return string
      */
     public function read(): string
     {
-        return json_decode($this->stream->read(), true);
+        return $this->stream->read();
+    }
+
+    /**
+     * Returns the decoded json string as whatever it will be parsed as.
+     *
+     * @param bool $asAssoc Return objects as associative arrays
+     * @return mixed
+     */
+    public function readDecoded(bool $asAssoc = true)
+    {
+        return json_decode($this->stream->read(), $asAssoc);
     }
 }
