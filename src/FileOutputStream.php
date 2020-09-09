@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Hschulz\IOStreams;
 
-use Hschulz\IOStreams\AbstractOutputStream;
-use Hschulz\IOStreams\WriteMode;
 use function fclose;
 use function fopen;
 use function fwrite;

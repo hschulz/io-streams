@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Hschulz\IOStreams;
 
-use Hschulz\IOStreams\FileInputStream;
 use function feof;
 use function fread;
 

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Hschulz\IOStreams;
 
-use Hschulz\IOStreams\AbstractOutputStream;
 use const JSON_PRETTY_PRINT;
 use const JSON_UNESCAPED_SLASHES;
 use const JSON_UNESCAPED_UNICODE;

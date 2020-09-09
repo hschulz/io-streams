@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Hschulz\IOStreams\Tests\Integration;
 
-use \PHPUnit\Framework\TestCase;
-use \org\bovigo\vfs\vfsStream;
-use \Hschulz\IOStreams\FileInputStream;
-use \Hschulz\IOStreams\ReadMode;
-use function \file_put_contents;
+use function file_put_contents;
+use Hschulz\IOStreams\FileInputStream;
+use Hschulz\IOStreams\ReadMode;
+use org\bovigo\vfs\vfsStream;
+use PHPUnit\Framework\TestCase;
 
 /**
  *
